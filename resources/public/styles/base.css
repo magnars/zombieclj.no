@@ -1,6 +1,6 @@
 body {background: url(../img/bg.png) repeat;}
 center {margin: 10px;}
-.watermark {position: absolute; width: 100%;}
+.watermark {position: absolute; width: 100%; z-index: -1;}
 .logo {max-width: 100%; margin-top: 3%; margin-bottom: 3%;}
 .photoframe {position: relative; z-index: 0; display: inline-block; vertical-align: bottom; text-align: left; max-width: 100%;}
 .photoframe:after {bottom: 5px; content: ""; position: absolute; width: 90%; height: 25px; z-index: -1; padding: 0; margin: 0 5%; display: block; background: transparent; border-radius: 100% / 50%; box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);}
