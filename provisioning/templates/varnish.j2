@@ -1,0 +1,25 @@
+# Configuration file for varnish
+#
+# /etc/init.d/varnish expects the variable $DAEMON_OPTS to be set from this
+# shell script fragment.
+#
+
+# Maximum number of open files (for ulimit -n)
+NFILES=131072
+
+# Locked shared memory (for ulimit -l)
+# Default log size is 82MB + header
+MEMLOCK=82000
+
+## Alternative 2, Configuration with VCL
+#
+# Listen on port 80, administration on localhost:6082, and forward to
+# one content server selected by the vcl file, based on the request.
+# Cache in memory.
+#
+DAEMON_OPTS="-a :80 \
+             -T localhost:6082 \
+             -f /etc/varnish/default.vcl \
+             -u varnish -g varnish \
+             -S /etc/varnish/secret \
+             -s malloc,384M"

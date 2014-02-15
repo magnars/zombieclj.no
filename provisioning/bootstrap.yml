@@ -1,0 +1,56 @@
+---
+- hosts: new-servers
+  vars:
+  - deploy_password: '$6$AC77dCF7!$e7KwPl1JJUKCFLBMKrgAVd.rjPqfElcRMqebjVHG48rFz35soLSPtNxv4tnTsb0ye6fAIwZtw4h6waTznmOfK0'
+    # crypted password, generated on a Linux box using: echo 'import crypt,getpass; print crypt.crypt(getpass.getpass(), "$6$AC77dCF7!")' | python -
+
+  tasks:
+  - name: Install necessary packages
+    yum: name={{ item }} state=latest
+    with_items:
+     - sudo
+     - e2fsprogs-libs
+     - e2fsprogs
+     - e2fsprogs-devel
+
+  - name: upgrade all packages
+    yum: name=* state=latest
+
+  - name: Create www group
+    group: name=www state=present
+
+  - name: Add deployment user
+    user: name=deploy state=present password={{ deploy_password }} shell=/bin/bash group=www
+
+  - name: Setup authorized_keys for users who may act as deploy user
+    authorized_key: user=deploy key="{{ item }}"
+    with_file:
+      - keys/magnars.pub
+      - keys/christian.pub
+
+  - name: Remove sudo group rights
+    action: lineinfile dest=/etc/sudoers regexp="^%sudo" state=absent
+
+  - name: Add deploy user to sudoers
+    action: lineinfile dest=/etc/sudoers regexp="deploy ALL" line="deploy ALL=(ALL) ALL" state=present
+
+  - name: Disallow root SSH access
+    action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
+    notify: Restart ssh
+
+  - name: Disallow password authentication
+    action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
+    notify: Restart ssh
+
+  - name: Create the GPG key for EPEL
+    copy: src=files/RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+
+  - name: Create the repository for EPEL
+    copy: src=files/epel.repo dest=/etc/yum.repos.d/epel.repo
+
+  - name: Install yum-cron for automatic updates
+    yum: name=yum-cron state=present
+
+  handlers:
+  - name: Restart ssh
+    action: service name=sshd state=restarted

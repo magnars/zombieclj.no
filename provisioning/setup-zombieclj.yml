@@ -1,0 +1,115 @@
+---
+- hosts: new-servers
+  tasks:
+   - name: Install nginx
+     yum: name=nginx state=present
+
+   - name: Configure nginx
+     template: src=templates/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+     notify:
+      - restart nginx
+
+   - name: Create sites-enabled/available directories
+     file: state=directory path=/etc/nginx/{{ item }} owner=nginx group=nginx
+     with_items:
+      - sites-enabled
+      - sites-available
+
+   - name: Write sites-available/zombieclj.no
+     template: src=templates/sites-available/zombieclj.no.j2 dest=/etc/nginx/sites-available/zombieclj.no
+     notify:
+      - restart nginx
+      - restart varnish
+
+   - name: Symlink zombieclj.no into sites-enabled
+     file: src=/etc/nginx/sites-available/zombieclj.no
+           dest=/etc/nginx/sites-enabled/zombieclj.no
+           owner=nginx
+           group=nginx
+           state=link
+
+   - name: Install varnish
+     yum: name=varnish state=present
+
+   - name: Configure varnish sysconfig
+     template: src=templates/varnish.j2 dest=/etc/sysconfig/varnish
+     notify:
+      - restart varnish
+
+   - name: Configure varnish vcl
+     template: src=templates/varnish.vcl.j2 dest=/etc/varnish/default.vcl
+     notify:
+      - restart varnish
+
+   - name: Check if iptables is operational (it isnt on VPSes)
+     stat: path=/etc/sysconfig/iptables
+     register: iptables_info
+
+   - name: open port 80 in firewall
+     lineinfile: dest=/etc/sysconfig/iptables regexp="-p tcp --dport 80 -j ACCEPT" line="-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT" insertafter="-p tcp --dport 22 -j ACCEPT"
+     when: iptables_info.stat.exists == true
+     notify:
+      - restart iptables
+
+   - name: Install jdk7
+     yum: name=java-1.7.0-openjdk-devel state=present
+
+   - name: Install git
+     yum: name=git state=present
+
+   - name: Install node
+     yum: name=nodejs state=present
+
+   - name: Install npm
+     yum: name=npm state=present
+
+   - name: Create bin folder
+     file: state=directory path=/home/{{ansible_ssh_user}}/bin owner={{ansible_ssh_user}} group=www
+
+   - name: Install lein
+     get_url: dest=/home/{{ansible_ssh_user}}/bin/lein url="https://raw.github.com/technomancy/leiningen/stable/bin/lein"
+
+   - name: Make lein executable
+     file: path=/home/{{ansible_ssh_user}}/bin/lein mode=755
+
+   - name: Upload build-site script
+     template: src=files/build-site.sh dest=/home/{{ansible_ssh_user}}/build-site.sh mode=755 owner={{ansible_ssh_user}} group=www
+
+   - name: Upload build-queue script
+     template: src=files/build-queue.js dest=/home/{{ansible_ssh_user}}/build-queue.js owner={{ansible_ssh_user}} group=www
+
+   - name: Install node-forever
+     npm: name=forever global=yes state=present
+
+   - name: Check list of Node.js apps running.
+     command: forever list
+     register: forever_list
+     changed_when: false
+     sudo: no
+
+   - name: Start build-queue
+     command: forever start /home/{{ansible_ssh_user}}/build-queue.js
+     when: "forever_list.stdout.find('/home/{{ansible_ssh_user}}/build-queue.js') == -1"
+     sudo: no
+
+   - name: Add nginx to www group
+     user: name=nginx group=www
+
+   - name: Give www access to flush varnish cache
+     file: path=/etc/varnish/secret group=www mode=660
+
+   - name: Create zombieclj.no directory
+     file: state=directory path=/var/www/zombieclj.no owner=nginx group=www mode=775
+     notify:
+      - restart nginx
+      - restart varnish
+
+  handlers:
+   - name: restart nginx
+     service: name=nginx state=restarted enabled=yes
+
+   - name: restart iptables
+     service: name=iptables state=restarted enabled=yes
+
+   - name: restart varnish
+     service: name=varnish state=restarted enabled=yes

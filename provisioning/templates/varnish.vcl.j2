@@ -1,0 +1,17 @@
+backend default {
+        .host = "127.0.0.1";
+        .port = "8001";
+}
+
+sub vcl_recv {
+        # Remove any cookie headers to enable caching
+        unset req.http.cookie;
+
+        if (req.url ~ "/site/build$") {
+                return (pass);
+        }
+}
+
+sub vcl_fetch {
+        set beresp.ttl = 1w;
+}
