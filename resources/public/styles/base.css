@@ -1,11 +1,19 @@
-body {background: url(../img/bg.png) repeat;}
-center {margin: 10px;}
-.watermark {position: absolute; width: 100%; z-index: -1;}
-.logo {max-width: 100%; margin-top: 3%; margin-bottom: 3%;}
-.photoframe {position: relative; z-index: 0; display: inline-block; vertical-align: bottom; text-align: left; max-width: 100%;}
-.photoframe:after {bottom: 5px; content: ""; position: absolute; width: 90%; height: 25px; z-index: -1; padding: 0; margin: 0 5%; display: block; background: transparent; border-radius: 100% / 50%; box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);}
-.mount {border: 1px solid #ccc; padding: 10px; background: #fff; max-width: 100%;}
-.mount {max-width: 400px;}
-.photo {max-width: 100%;}
-.text {margin: 10px; text-align: center; font-family: Tahoma;}
-.twit {margin-top: 5%;}
+body {background: url(/img/canvas.jpg) repeat; font-size: 16px; line-height: 1.5;}
+.main {padding: 0 10px; margin: 10px 0;}
+
+.header {text-align: center;}
+.teaser {font-family: Consolas,"Liberation Mono",Courier,monospace; font-size: 14px;}
+
+.header,
+.intro,
+.act {margin-bottom: 20px;}
+
+.intro {font-size: 17px;}
+
+img {max-width: 100%;}
+
+h2 {font-size: 22px; font-weight: bold;}
+
+.episode {background: url(/img/texture.gif) repeat; border-bottom: 1px solid #a2a2a2; margin-top: 5px;}
+.episode a {display: block; padding: 12px 10px 12px 88px; background: url(/img/episode.png) no-repeat 7px 50%;}
+

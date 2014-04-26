@@ -3,36 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zombie CLJ</title>
+    <title>ZombieTDD</title>
     <link rel="stylesheet" href="/styles/responsive.css">
   </head>
   <body>
-    <img class="watermark" src="/img/zombie.png">
-    <center>
-      <div>
-        <img class="logo" src="/img/zombieclj.png">
+    <div class="main">
+      <div class="header">
+        <img class="logo" src="/img/logo.png">
+        <p class="teaser">Zombier, mafia og testdrevet utvikling</p>
       </div>
-      <div class="photoframe">
-        <div class="mount">
-          <img class="photo" src="/img/photo.jpg" alt="Deilig dobbel-selfie">
-          <div class="text">
-            Zombier, Mafia og Clojure.<br>
-            Også to tomsinger fra Østfold.
-          </div>
+      <div class="body">
+
+        <p class="intro">
+          Hei! Jeg heter Magnar, og jeg lager et nettspill fra scratch
+          med javascript på klient og server. Testdrevet etter beste
+          evne. Har du lyst til å være med?
+        </p>
+
+        <div class="act">
+          <h2>Akt I</h2>
+          <p>
+            Introduksjon til serien. Litt om spillet og tankene bak.
+          </p>
+          <div class="episode"><a href="#">Episode 1: Introduksjon</a></div>
         </div>
+
+        <div class="act">
+          <h2>Akt II</h2>
+          <p>
+            Grunnleggende testdrevet utvikling og refaktorering, samt
+            oppsett av miljø med JsTestDriver.
+          </p>
+          <div class="episode"><a href="#">Episode 2: Skjelettkode</a></div>
+          <div class="episode"><a href="#">Episode 3: JSLint</a></div>
+          <div class="episode"><a href="#">Episode 4: Roterer i grava</a></div>
+          <div class="episode"><a href="#">Episode 5: The re-factorer</a></div>
+          <div class="episode"><a href="#">Episode 6: 1/3 of the Beast</a></div>
+          <div class="episode"><a href="#">Episode 7: Mot klokka</a></div>
+          <div class="episode"><a href="#">Episode 8: Until You Drop</a></div>
+        </div>
+
       </div>
-      <div class="twit">
-        <a href="https://twitter.com/ZombieCLJ" class="twitter-follow-button" data-show-count="false" data-lang="no" data-size="large" data-dnt="true">Følg @ZombieCLJ</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </div>
-    </center>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-48142253-1', 'zombieclj.no');
-      ga('send', 'pageview');
-    </script>
+    </div>
   </body>
 </html>
