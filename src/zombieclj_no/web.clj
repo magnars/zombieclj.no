@@ -7,7 +7,10 @@
             [optimus.prime :as optimus]
             [optimus.strategies :refer [serve-live-assets]]
             [ring.middleware.content-type :refer [wrap-content-type]]
-            [stasis.core :as stasis]))
+            [stasis.core :as stasis]
+            [zombieclj-no.content :refer [load-content]]
+            [zombieclj-no.layout :refer [render-page]]
+            [zombieclj-no.pages :as pages]))
 
 (defn get-assets []
   (assets/load-assets "public" ["/styles/responsive.css"
@@ -23,12 +26,18 @@
             [:img] #(update-in % [:attrs :src] (optimize-path-fn request))
             [:link] #(update-in % [:attrs :href] (optimize-path-fn request))))
 
+(defn- prepare-page [page request]
+  (-> page
+      (render-page)
+      (use-optimized-assets request)))
+
 (defn update-vals [m f]
   (into {} (for [[k v] m] [k (f v)])))
 
 (defn get-pages []
-  (-> (stasis/slurp-directory "resources/pages" #"\.html$")
-      (update-vals #(partial use-optimized-assets %))))
+  (-> (load-content)
+      (pages/get-pages)
+      (update-vals #(partial prepare-page %))))
 
 (def optimize optimizations/all)
 

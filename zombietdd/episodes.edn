@@ -1,0 +1,51 @@
+[{:name "Act I"
+  :description "Introduksjon til serien. Litt om spillet og tankene bak."
+  :episodes [{:number "01" :youtube "317CL6bO6fM" :size "111mb" :name "Introduksjon"}]}
+
+ {:name "Act II"
+  :description "Grunnleggende testdrevet utvikling og refaktorering, samt oppsett av miljø med JsTestDriver."
+  :episodes [{:number "02" :youtube "o5yG9Rs427A" :size "157mb" :name "Skjelettkode"}
+             {:number "03" :youtube "tPRIMQ8XTk8" :size "120mb" :name "JSLint"}
+             {:number "04" :youtube "fmZKWHryNwg" :size "208mb" :name "Roterer i grava"}
+             {:number "05" :youtube "PIQcuWsSUwI" :size "219mb" :name "The Re-Factorer"             :guest :cjno}
+             {:number "06" :youtube "uM5n1z1NHK4" :size "261mb" :name "1/3 of the Beast"            :guest :cjno}
+             {:number "07" :youtube "QN7AOnoOVs4" :size "222mb" :name "Mot klokka"}
+             {:number "08" :youtube "lmM0Ke-BOGY" :size "262mb" :name "Until You Drop"}]}
+
+ {:name "Act III"
+  :description "Parprogrammering med Johannes Brodwall. Vi får opp en nettside, og starter bygging av rom."
+  :episodes [{:number "09" :youtube "dDuPUCzVfWg" :size "203mb" :name "Backend's Back"              :guest :jhannes}
+             {:number "10" :youtube "7JySbj8ccEI" :size "215mb" :name "Roten til litt vondt"        :guest :jhannes}
+             {:number "11" :youtube "CzFjxmI_934" :size "229mb" :name "Into the Dead Sky"           :guest :jhannes}
+             {:number "12" :youtube "FqA-ne912RQ" :size "211mb" :name "Knapt med tid"               :guest :jhannes}
+             {:number "13" :youtube "7OqZnzY0agM" :size "232mb" :name "Någonting Är Jävligt Fel"}]}
+
+ {:name "Act IV"
+  :description "Refaktorering og rydding. Legger om til Buster.JS for tester, bruker Faye som event hub, og får på integrasjonstester."
+  :episodes [{:number "14" :youtube "O80Bf--htnU" :size "263mb" :name "Buster'd"                    :guest :cjno}
+             {:number "15" :youtube "tPe5ebTwsgs" :size "164mb" :name "Det er bare klapping"}
+             {:number "16" :youtube "ORy9oITSFQU" :size "253mb" :name "Decouplitated"}
+             {:number "17" :youtube "gzwJ2qP5n3Y" :size "353mb" :name "I live på CiA"               :guest :cia_audience}
+             {:number "18" :youtube "gntBVEidlVo" :size "269mb" :name "Integrasjonstester"          :guest :cjno}]}
+
+ {:name "Act V"
+  :description "Parprogrammering med Johannes Brodwall. Zombiene bryter ned barrikaden og tar seg inn i bygningen."
+  :episodes [{:number "19" :youtube "2DxRUJY82Ls" :size "205mb" :name "Undefined zombies"           :guest :jhannes}
+             {:number "20" :youtube "EdpLNRKKRdM" :size "214mb" :name "Brutte løfter"               :guest :jhannes}
+             {:number "21" :youtube "pINQcwrJfdg" :size "113mb" :name "Ingen barrikade"             :guest :jhannes}
+             {:number "22" :youtube "ZAg2ntLTwnM" :size "227mb" :name "Zombies don't eat baguettes" :guest :jhannes}
+             {:number "23" :youtube "RjHTb4R87wE" :size "209mb" :name "Vandød nettleser"            :guest :jhannes}
+             {:number "24" :youtube "bM5sCmxdDG8" :size "320mb" :name "Zombieslakt"                 :guest :jhannes}]}
+
+ {:name "Act VI"
+  :description "Sørger for at serveren og klienten er i synk, samt refaktorering."
+  :episodes [{:number "25" :youtube "kmhgi-Ig3UI" :size "172mb" :name "eventHub, del 1"}
+             {:number "26" :youtube "K-6yOKu0F_0" :size "160mb" :name "eventHub, del 2"}
+             {:number "27" :youtube "6G-mOn7pdsw" :size "151mb" :name "eventHub, del 3"}
+             {:number "28" :youtube "FazTtiRHsJE" :size "103mb" :name "Jøss, en server"}
+             {:number "29" :youtube "WvLtHLe17_k" :size "159mb" :name "N-sync"}]}
+
+ {:name "Act VII"
+  :description "En ny innfallsvinkel til spillet, sparket i gang med live parprogrammering featuring Christian Johansen på JavaZone."
+  :episodes [{:number "30" :vimeo "49485653" :name "En trivelig aften på JavaZone"                  :guest :cjno}
+             {:number "31" :youtube "3rsHL90fOxE" :size "169mb" :name "Sperra inne"}]}]

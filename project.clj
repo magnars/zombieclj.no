@@ -7,7 +7,8 @@
                  [optimus "0.14.2"]
                  [stasis "0.7.0"]
                  [ring "1.2.1"]
-                 [enlive "1.1.5"]]
+                 [enlive "1.1.5"]
+                 [mapdown "0.1.0"]]
   :jvm-opts ["-Djava.awt.headless=true"]
   :resource-paths ["resources" "zombietdd"]
   :ring {:handler zombieclj-no.web/app

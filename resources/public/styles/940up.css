@@ -1,5 +1,5 @@
-html {background: url(../img/bg.jpg) repeat; height: 100%;}
-body {background: url(/img/pillar.jpg) repeat-y 50% 0; height: 100%; max-width: 1000px; margin: 0 auto;}
+html {background: url(../img/bg.jpg) repeat; min-height: 100%;}
+body {background: url(/img/pillar.jpg) repeat-y 50% 0; min-height: 100%; max-width: 1000px; margin: 0 auto;}
 .main {padding: 25px 80px; margin: 0 0 0 -15px; background-position: 50% 10px;}
 .header {margin-bottom: 40px;}
 .intro {font-size: 20px;}
