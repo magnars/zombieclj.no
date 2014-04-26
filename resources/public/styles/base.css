@@ -14,6 +14,8 @@ img {max-width: 100%;}
 
 h2 {font-size: 22px; font-weight: bold;}
 
-.episode {background: url(/img/texture.gif) repeat; border-bottom: 1px solid #a2a2a2; margin-top: 5px;}
+.box,
+.episode {background: url(/img/texture.gif) repeat; border-bottom: 1px solid #a2a2a2; margin-top: 5px; font-size: 14px;}
 .episode a {display: block; padding: 12px 10px 12px 88px; background: url(/img/episode.png) no-repeat 7px 50%;}
 
+.guest {display: none;}

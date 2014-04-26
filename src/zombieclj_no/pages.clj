@@ -4,10 +4,17 @@
             [hiccup.core :refer [html]]
             [mapdown.core :as mapdown]))
 
-(defn- render-episode [episode]
+(def guests
+  {:cjno "Christian Johansen"
+   :jhannes "Johannes Brodwall"
+   :cia-audience "120 publikummere på CiA"})
+
+(defn- render-episode [{:keys [number name guest]}]
   [:div.episode
-   [:a {:href "#"}
-    "Episode " (:number episode) ": " (:name episode)]])
+   [:a {:href (str "/e" number ".html")}
+    (when guest
+      [:span.guest "Starring " (guests guest)])
+    "Episode " number ": " name]])
 
 (defn- render-season [season]
   [:div.season

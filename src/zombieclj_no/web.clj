@@ -1,6 +1,7 @@
 (ns zombieclj-no.web
   (:require [net.cgrand.enlive-html :refer [sniptest]]
             [optimus.assets :as assets]
+            [optimus.assets.load-css :refer [external-url?]]
             [optimus.export]
             [optimus.link :as link]
             [optimus.optimizations :as optimizations]
@@ -18,8 +19,10 @@
 
 (defn- optimize-path-fn [request]
   (fn [src]
-    (or (not-empty (link/file-path request src))
-        (throw (Exception. (str "Asset not loaded: " src))))))
+    (if (external-url? src)
+      src
+      (or (not-empty (link/file-path request src))
+          (throw (Exception. (str "Asset not loaded: " src)))))))
 
 (defn- use-optimized-assets [html request]
   (sniptest html
