@@ -2,7 +2,8 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
             [hiccup.core :refer [html]]
-            [mapdown.core :as mapdown]))
+            [mapdown.core :as mapdown]
+            [stasis.core :as stasis]))
 
 (def guests
   {:cjno "Christian Johansen"
@@ -22,10 +23,30 @@
    [:p (:description season)]
    (map render-episode (:episodes season))])
 
+(defn- insert-mail-signup [html]
+  (str/replace html
+               "<mail-signup/>"
+               (slurp (io/resource "mail-signup.html"))))
+
 (defn index [content]
   {:body (-> (slurp (io/resource "index.html"))
              (str/replace "<episodes/>"
-                          (html (map render-season (:seasons content)))))})
+                          (html (map render-season (:seasons content))))
+             insert-mail-signup)})
+
+(defn- episode-url [episode]
+  (str "/e" (:number episode) ".html"))
+
+(defn- episode-page [episode]
+  {:body "Hei"})
+
+(defn create-episode-pages [content]
+  (->> (:seasons content)
+       (mapcat :episodes)
+       (map (juxt episode-url episode-page))
+       (into {})))
 
 (defn get-pages [content]
-  {"/" (index content)})
+  (merge
+   {"/" (index content)}
+   (create-episode-pages content)))
