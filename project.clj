@@ -8,6 +8,8 @@
                  [stasis "0.7.0"]
                  [ring "1.2.1"]
                  [enlive "1.1.5"]]
+  :jvm-opts ["-Djava.awt.headless=true"]
+  :resource-paths ["resources" "zombietdd"]
   :ring {:handler zombieclj-no.web/app
          :port 3334}
   :aliases {"build-site" ["run" "-m" "zombieclj-no.web/export"]}
