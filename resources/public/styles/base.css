@@ -15,7 +15,19 @@ img {max-width: 100%;}
 h2 {font-size: 22px; font-weight: bold;}
 
 .box,
-.episode {background: url(/img/texture.gif) repeat; border-bottom: 1px solid #a2a2a2; margin-top: 5px; font-size: 14px;}
+.episode {background: url(/img/texture.gif) repeat; border-bottom: 1px solid #a2a2a2; margin-top: 5px;}
 .episode a {display: block; padding: 12px 10px 12px 88px; background: url(/img/episode.png) no-repeat 7px 50%;}
+.episode {font-size: 14px;}
+
+.box {padding: 20px 20px;}
 
 .guest {display: none;}
+
+form {margin: 5px 0 10px;}
+form input {padding: 5px; min-width: 50%; font-size: 16px;}
+
+.faded {color: #888;}
+.small {font-size: 14px;}
+.nowrap {white-space: nowrap;}
+
+ul li {list-style: disc; margin-left: 25px;}
