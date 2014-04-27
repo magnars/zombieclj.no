@@ -37,8 +37,22 @@
 (defn- episode-url [episode]
   (str "/e" (:number episode) ".html"))
 
-(defn- episode-page [episode]
-  {:body "Hei"})
+(defn- episode-page [settings episode]
+  {:body
+   (list
+    [:p.intro (-> settings :episode-intro) " "
+     (if (:first? episode)
+       "Her er første episode:"
+       (list "Hvis du er ny her, så vil du kanskje "
+             [:a {:href "/"} "starte på forsiden"]
+             "."))]
+    [:iframe {:width 835
+              :height 505
+              :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
+              :frameborder 0
+              :allowfullscreen true}])
+   })
+
 
 (defn create-episode-pages [content]
   (-> content :seasons

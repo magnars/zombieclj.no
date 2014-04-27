@@ -1,2 +1,3 @@
 {:title "ZombieTDD"
- :teaser "Zombier, mafia og testdrevet utvikling"}
+ :teaser "Zombier, mafia og testdrevet utvikling"
+ :episode-intro "Hei! Jeg heter Magnar, og jeg lager et nettspill fra bunn av med javascript på klient og server. Testdrevet etter beste evne."}
