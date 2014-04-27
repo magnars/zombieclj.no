@@ -31,7 +31,7 @@
 
 (defn- prepare-page [page content request]
   (-> page
-      (render-page (:settings content))
+      (render-page content)
       (use-optimized-assets request)))
 
 (defn update-vals [m f]

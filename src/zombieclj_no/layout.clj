@@ -14,22 +14,24 @@
     (str title " | " (:title settings))
     (:title settings)))
 
-(defn render-page [page settings]
-  (html5
-   [:head
-    [:meta {:charset "utf-8"}]
-    [:meta {:name "viewport"
-            :content "width=device-width, initial-scale=1.0"}]
-    (serve-to-media-query-capable-browsers
-     [:link {:rel "stylesheet" :href "/styles/responsive.css"}])
-    (serve-to-media-query-clueless-browsers
-     [:link {:rel "stylesheet" :href "/styles/unresponsive.css"}])
-    [:title (head-title page settings)]]
-   [:body
-    [:script (slurp (io/resource "public/scripts/ga.js"))]
-    [:div.main
-     [:div.header
-      [:a {:href "/"} [:img.logo {:src "/img/logo.png"}]]
-      [:p.teaser (:teaser settings)]]
-     [:div.body
-      (:body page)]]]))
+(defn render-page [page content]
+  (let [settings (:settings content)]
+   (html5
+    [:head
+     [:meta {:charset "utf-8"}]
+     [:meta {:name "viewport"
+             :content "width=device-width, initial-scale=1.0"}]
+     (serve-to-media-query-capable-browsers
+      [:link {:rel "stylesheet" :href "/styles/responsive.css"}])
+     (serve-to-media-query-clueless-browsers
+      [:link {:rel "stylesheet" :href "/styles/unresponsive.css"}])
+     [:title (head-title page settings)]]
+    [:body
+     [:script (slurp (io/resource "public/scripts/ga.js"))]
+     [:div.main
+      [:div.header
+       [:a {:href "/"} [:img.logo {:src "/img/logo.png"}]]
+       [:p.teaser (:teaser settings)]]
+      [:div.body
+       (:body page)
+       (:footer content)]]])))

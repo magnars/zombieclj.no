@@ -7,4 +7,5 @@
 (defn load-content []
   {:seasons (load-edn "episodes.edn")
    :settings (load-edn "settings.edn")
-   :mail-signup (slurp (io/resource "mail-signup.html"))})
+   :mail-signup (slurp (io/resource "mail-signup.html"))
+   :footer (slurp (io/resource "footer.html"))})
