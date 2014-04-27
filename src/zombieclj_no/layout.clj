@@ -9,14 +9,12 @@
 (defn- serve-to-media-query-clueless-browsers [tag]
   (list "<!--[if (lte IE 8) & (!IEMobile)]>" tag "<![endif]-->"))
 
-(def settings (read-string (slurp (io/resource "settings.edn"))))
-
-(defn- head-title [page]
+(defn- head-title [page settings]
   (if-let [title (:title page)]
     (str title " | " (:title settings))
     (:title settings)))
 
-(defn render-page [page]
+(defn render-page [page settings]
   (html5
    [:head
     [:meta {:charset "utf-8"}]
@@ -26,7 +24,7 @@
      [:link {:rel "stylesheet" :href "/styles/responsive.css"}])
     (serve-to-media-query-clueless-browsers
      [:link {:rel "stylesheet" :href "/styles/unresponsive.css"}])
-    [:title (head-title page)]]
+    [:title (head-title page settings)]]
    [:body
     [:script (slurp (io/resource "public/scripts/ga.js"))]
     [:div.main

@@ -27,16 +27,12 @@
    [:p (:description season)]
    (map render-episode (:episodes season))])
 
-(defn- insert-mail-signup [html]
-  (str/replace html
-               "<mail-signup/>"
-               (slurp (io/resource "mail-signup.html"))))
-
 (defn index [content]
   {:body (-> (slurp (io/resource "index.html"))
              (str/replace "<episodes/>"
                           (html (map render-season (:seasons content))))
-             insert-mail-signup)})
+             (str/replace "<mail-signup/>"
+                          (:mail-signup content)))})
 
 (defn- episode-url [episode]
   (str "/e" (:number episode) ".html"))
@@ -45,11 +41,13 @@
   {:body "Hei"})
 
 (defn create-episode-pages [content]
-  (->> (:seasons content)
+  (-> content :seasons
+      (assoc-in [0 :episodes 0 :first?] true)
+      (->>
        (mapcat :episodes)
        (remove :upcoming)
-       (map (juxt episode-url episode-page))
-       (into {})))
+       (map (juxt episode-url (partial episode-page (:settings content))))
+       (into {}))))
 
 (defn get-pages [content]
   (merge

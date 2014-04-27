@@ -29,18 +29,18 @@
             [:img] #(update-in % [:attrs :src] (optimize-path-fn request))
             [:link] #(update-in % [:attrs :href] (optimize-path-fn request))))
 
-(defn- prepare-page [page request]
+(defn- prepare-page [page content request]
   (-> page
-      (render-page)
+      (render-page (:settings content))
       (use-optimized-assets request)))
 
 (defn update-vals [m f]
   (into {} (for [[k v] m] [k (f v)])))
 
 (defn get-pages []
-  (-> (load-content)
-      (pages/get-pages)
-      (update-vals #(partial prepare-page %))))
+  (let [content (load-content)]
+    (-> (pages/get-pages content)
+        (update-vals #(partial prepare-page % content)))))
 
 (def optimize optimizations/all)
 
