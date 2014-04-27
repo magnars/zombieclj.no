@@ -34,10 +34,7 @@
              (str/replace "<mail-signup/>"
                           (:mail-signup content)))})
 
-(defn- episode-url [episode]
-  (str "/e" (:number episode) ".html"))
-
-(defn- episode-page [content episode]
+(defn- episode-page [episode next-episode content]
   (let [settings (:settings content)
         filename (str (:id settings) "_" (:number episode) ".mov")]
     {:body
@@ -53,13 +50,26 @@
                 :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
                 :frameborder 0
                 :allowfullscreen true}]
-      [:ul.small
+      [:ul.small.mbm
        [:li "Du kan også laste den ned og se på bussen: "
         [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
          filename]
-        " (" (:size episode) ")"]]
+        " (" (:size episode) ")"]
+       (when-not next-episode
+         [:li "Hvis du har gått glipp av noe, kan du sjekke ut "
+          [:a {:href "/"} "alle episodene"]
+          " her."])]
+      (when next-episode
+        [:div.box
+         [:a.right {:href "/"} "Alle episoder"]
+         "Sett den ferdig? "
+         [:span.nowrap "Her er "
+          [:a {:href (episode-url next-episode)}
+           "Episode " (:number next-episode) ": " (:name next-episode)]]])
       (:mail-signup content))}))
 
+(defn- episode-url [episode]
+  (str "/e" (:number episode) ".html"))
 
 (defn create-episode-pages [content]
   (-> content :seasons
@@ -67,7 +77,10 @@
       (->>
        (mapcat :episodes)
        (remove :upcoming)
-       (map (juxt episode-url (partial episode-page content)))
+       (partition-all 2 1)
+       (map (fn [[episode next-episode]]
+              [(episode-url episode)
+               (episode-page episode next-episode content)]))
        (into {}))))
 
 (defn get-pages [content]
