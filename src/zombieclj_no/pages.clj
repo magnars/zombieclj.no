@@ -37,26 +37,28 @@
 (defn- episode-url [episode]
   (str "/e" (:number episode) ".html"))
 
-(defn- episode-page [settings episode]
-  {:body
-   (list
-    [:p.intro (-> settings :episode-intro) " "
-     (if (:first? episode)
-       "Her er første episode:"
-       (list "Hvis du er ny her, så vil du kanskje "
-             [:a {:href "/"} "starte på forsiden"]
-             "."))]
-    [:iframe {:width 835
-              :height 505
-              :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
-              :frameborder 0
-              :allowfullscreen true}]
-    (let [filename (str (:id settings) "_" (:number episode) ".mov")]
+(defn- episode-page [content episode]
+  (let [settings (:settings content)
+        filename (str (:id settings) "_" (:number episode) ".mov")]
+    {:body
+     (list
+      [:p.intro (-> settings :episode-intro) " "
+       (if (:first? episode)
+         "Her er første episode:"
+         (list "Hvis du er ny her, så vil du kanskje "
+               [:a {:href "/"} "starte på forsiden"]
+               "."))]
+      [:iframe {:width 835
+                :height 505
+                :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
+                :frameborder 0
+                :allowfullscreen true}]
       [:ul.small
        [:li "Du kan også laste den ned og se på bussen: "
         [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
          filename]
-        " (" (:size episode) ")"]]))})
+        " (" (:size episode) ")"]]
+      (:mail-signup content))}))
 
 
 (defn create-episode-pages [content]
@@ -65,7 +67,7 @@
       (->>
        (mapcat :episodes)
        (remove :upcoming)
-       (map (juxt episode-url (partial episode-page (:settings content))))
+       (map (juxt episode-url (partial episode-page content)))
        (into {}))))
 
 (defn get-pages [content]
