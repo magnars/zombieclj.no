@@ -10,11 +10,15 @@
    :jhannes "Johannes Brodwall"
    :cia-audience "120 publikummere på CiA"})
 
-(defn- render-episode [{:keys [number name guest]}]
+(defn- render-episode [{:keys [number name guest upcoming]}]
   [:div.episode
-   [:a {:href (str "/e" number ".html")}
+   [:a (if upcoming
+         {:class "faded"}
+         {:href (str "/e" number ".html")})
     (when guest
-      [:span.guest "Starring " (guests guest)])
+      [:span.note "Starring " (guests guest)])
+    (when upcoming
+      [:span.note "Kommer " upcoming])
     "Episode " number ": " name]])
 
 (defn- render-season [season]
@@ -43,6 +47,7 @@
 (defn create-episode-pages [content]
   (->> (:seasons content)
        (mapcat :episodes)
+       (remove :upcoming)
        (map (juxt episode-url episode-page))
        (into {})))
 

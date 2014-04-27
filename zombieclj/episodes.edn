@@ -1,0 +1,6 @@
+[{:name "Sesong 1"
+  :description "Vi lager første spill i serien, en memo-variant som er hakket mer utfordrende enn du er vant til. Du vil ikke flippe opp zombier eller tåke, og tida løper fra deg fortere enn du løper fra zombiene. <a class='nowrap' href='/memo.html'>Les om spillet</a>"
+  :episodes [{:number "01" :youtube "" :size "" :name "Introduksjon"}
+             {:number "02" :youtube "" :size "" :name "Opp med serveren"}
+             {:number "03" :youtube "" :size "" :name "Quiescent"}
+             {:number "04" :upcoming "fredag 2. april" :size "" :name "Få ferdig UIet"}]}]

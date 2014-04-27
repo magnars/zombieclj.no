@@ -10,8 +10,9 @@
                  [enlive "1.1.5"]
                  [mapdown "0.1.0"]]
   :jvm-opts ["-Djava.awt.headless=true"]
-  :resource-paths ["resources" "zombietdd"]
   :ring {:handler zombieclj-no.web/app
          :port 3334}
   :aliases {"build-site" ["run" "-m" "zombieclj-no.web/export"]}
-  :profiles {:dev {:plugins [[lein-ring "0.8.10"]]}})
+  :profiles {:dev {:plugins [[lein-ring "0.8.10"]]}
+             :ztdd {:resource-paths ["resources" "zombietdd"]}
+             :zclj {:resource-paths ["resources" "zombieclj"]}})

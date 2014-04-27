@@ -21,7 +21,7 @@ h2 {font-size: 22px; font-weight: bold;}
 
 .box {padding: 20px 20px;}
 
-.guest {display: none;}
+.note {display: none;}
 
 form {margin: 5px 0 10px;}
 form input {padding: 5px; min-width: 50%; font-size: 16px;}
