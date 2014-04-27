@@ -29,7 +29,7 @@
     [:script (slurp (io/resource "public/scripts/ga.js"))]
     [:div.main
      [:div.header
-      [:img.logo {:src "/img/logo.png"}]
+      [:a {:href "/"} [:img.logo {:src "/img/logo.png"}]]
       [:p.teaser (:teaser settings)]]
      [:div.body
       (:body page)]]]))
