@@ -3,7 +3,7 @@
                 hakket mer utfordrende enn du er vant til. Du må ikke flippe opp
                 zombier eller tåke, og tida løper fra deg fortere enn du løper fra
                 zombiene. <a class='nowrap' href='/memo.html'>Les om spillet</a>"
-  :episodes [{:number "01" :youtube "" :size "" :name "Introduksjon"}
-             {:number "02" :youtube "" :size "" :name "Opp med serveren"}
-             {:number "03" :youtube "" :size "" :name "Quiescent"}
-             {:number "04" :upcoming "fredag 2. april" :size "" :name "Få ferdig UIet"}]}]
+  :episodes [{:number "01" :youtube "" :size "0mb" :name "Introduksjon"}
+             {:number "02" :youtube "" :size "0mb" :name "Opp med serveren"}
+             {:number "03" :youtube "" :size "0mb" :name "Quiescent"}
+             {:number "04" :upcoming "fredag 2. april" :name "Få ferdig UIet"}]}]

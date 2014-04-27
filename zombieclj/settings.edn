@@ -1,3 +1,4 @@
-{:title "ZombieCLJ"
+{:id "zombieclj"
+ :title "ZombieCLJ"
  :teaser "Zombier, Clojure og to tomsinger fra Østfold"
  :episode-intro "Hei sveis! Velkommen til en videoserie om å lage nettspill fra bunn av med Clojure og ClojureScript."}

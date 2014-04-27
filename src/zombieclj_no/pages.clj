@@ -50,8 +50,13 @@
               :height 505
               :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
               :frameborder 0
-              :allowfullscreen true}])
-   })
+              :allowfullscreen true}]
+    (let [filename (str (:id settings) "_" (:number episode) ".mov")]
+      [:ul.small
+       [:li "Du kan også laste den ned og se på bussen: "
+        [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
+         filename]
+        " (" (:size episode) ")"]]))})
 
 
 (defn create-episode-pages [content]
