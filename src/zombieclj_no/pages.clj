@@ -10,6 +10,9 @@
    :jhannes "Johannes Brodwall"
    :cia-audience "120 publikummere på CiA"})
 
+(defn- episode-url [episode]
+  (str "/e" (:number episode) ".html"))
+
 (defn- render-episode [{:keys [number name guest upcoming]}]
   [:div.episode
    [:a (if upcoming
@@ -33,6 +36,12 @@
                           (html (map render-season (:seasons content))))
              (str/replace "<mail-signup/>"
                           (:mail-signup content)))})
+
+(defn- insert-disqus-thread [html episode]
+  (-> html
+      (str/replace #":episode-identifier" (or (:disqus-identifier episode)
+                                              (str "episode" (:number episode))))
+      (str/replace #":episode-link" (episode-url episode))))
 
 (defn- episode-page [episode next-episode content]
   (let [settings (:settings content)
@@ -66,10 +75,8 @@
          [:span.nowrap "Her er "
           [:a {:href (episode-url next-episode)}
            "Episode " (:number next-episode) ": " (:name next-episode)]]])
-      (:mail-signup content))}))
-
-(defn- episode-url [episode]
-  (str "/e" (:number episode) ".html"))
+      (:mail-signup content)
+      (insert-disqus-thread (:disqus-html content) episode))}))
 
 (defn create-episode-pages [content]
   (-> content :seasons

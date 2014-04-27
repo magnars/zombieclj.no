@@ -1,6 +1,6 @@
 [{:name "Akt I"
   :description "Introduksjon til serien. Litt om spillet og tankene bak."
-  :episodes [{:number "01" :youtube "317CL6bO6fM" :size "111mb" :name "Introduksjon"}]}
+  :episodes [{:number "01" :youtube "317CL6bO6fM" :size "111mb" :name "Introduksjon" :disqus-identifier "episode1"}]}
 
  {:name "Akt II"
   :description "Grunnleggende testdrevet utvikling og refaktorering, samt oppsett av miljø med JsTestDriver."
