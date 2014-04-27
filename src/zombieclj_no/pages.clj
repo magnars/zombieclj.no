@@ -45,7 +45,7 @@
 
 (defn- episode-page [episode next-episode content]
   (let [settings (:settings content)
-        filename (str (:id settings) "_" (:number episode) ".mov")]
+        filename (str (:id settings) "_" (:number episode) "." (-> content :settings :ext))]
     {:body
      (list
       [:p.intro (-> settings :episode-intro) " "
@@ -56,7 +56,7 @@
                "."))]
       [:iframe {:width 835
                 :height 505
-                :src "http://www.youtube.com/embed/o5yG9Rs427A?hd=1"
+                :src (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1")
                 :frameborder 0
                 :allowfullscreen true}]
       [:ul.small.mbm
