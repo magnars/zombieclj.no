@@ -27,7 +27,7 @@ else
 
     if [ $changed ]; then
         log "Building"
-        ../bin/lein build-site && built=1
+        ../bin/lein with-profile zclj build-site && built=1
         if [ $built ]; then
             log "Publishing"
             rm -rf /var/www/zombieclj.no/current
