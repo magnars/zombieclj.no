@@ -38,4 +38,11 @@ ul li {list-style: disc; margin-left: 25px;}
 
 .mtl {margin-top: 30px;}
 .mbm {margin-bottom: 20px;}
+.mrm {margin-right: 20px;}
 .right {float: right;}
+
+.clear {clear: both;}
+
+.article {overflow:hidden;}
+.article p,
+.article ul {margin-bottom: 20px;}

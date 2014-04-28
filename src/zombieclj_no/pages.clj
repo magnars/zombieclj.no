@@ -90,7 +90,15 @@
                (episode-page episode next-episode content)]))
        (into {}))))
 
+(defn update-vals [m f]
+  (into {} (for [[k v] m] [k (f v)])))
+
+(defn create-misc-pages []
+  (-> (stasis/slurp-directory "resources/pages" #"\.html$")
+      (update-vals (fn [html] {:body html}))))
+
 (defn get-pages [content]
   (merge
    {"/" (index content)}
-   (create-episode-pages content)))
+   (create-episode-pages content)
+   (create-misc-pages)))
