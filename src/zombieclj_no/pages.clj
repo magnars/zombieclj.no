@@ -2,7 +2,6 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
             [hiccup.core :refer [html]]
-            [mapdown.core :as mapdown]
             [stasis.core :as stasis]))
 
 (def guests
@@ -94,7 +93,7 @@
   (into {} (for [[k v] m] [k (f v)])))
 
 (defn create-misc-pages []
-  (-> (stasis/slurp-directory "resources/pages" #"\.html$")
+  (-> (stasis/slurp-resources "pages" #"\.html$")
       (update-vals (fn [html] {:body html}))))
 
 (defn get-pages [content]
