@@ -53,12 +53,11 @@
          (list "Hvis du er ny her, så vil du kanskje "
                [:a {:href "/"} "starte på forsiden"]
                "."))]
-      [:iframe {:width 835
-                :height 505
-                :src (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1")
-                :frameborder 0
-                :allowfullscreen true}]
-      [:ul.small.mbm
+      [:div.embed-container
+       [:iframe {:src (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1")
+                 :frameborder 0
+                 :allowfullscreen true}]]
+      [:ul.small.mbm.mts
        [:li "Du kan også laste den ned og se på bussen: "
         [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
          filename]

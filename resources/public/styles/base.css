@@ -19,6 +19,11 @@ h2 {font-size: 22px; font-weight: bold;}
 .episode a {display: block; padding: 12px 10px 12px 88px; background: url(/img/episode.png) no-repeat 7px 50%;}
 .episode {font-size: 14px;}
 
+.embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; }
+.embed-container iframe,
+.embed-container object,
+.embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 .box {padding: 20px 20px;}
 
 .note {display: none;}
@@ -37,6 +42,7 @@ ul li {list-style: disc; margin-left: 25px;}
 .body {padding-bottom: 20px;}
 
 .mtl {margin-top: 30px;}
+.mts {margin-top: 10px;}
 .mbm {margin-bottom: 20px;}
 .mrm {margin-right: 20px;}
 .right {float: right;}
