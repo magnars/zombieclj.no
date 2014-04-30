@@ -1,4 +1,4 @@
-body {background: url(/img/canvas.jpg) repeat; font-size: 16px; line-height: 1.5;}
+body {background: url(/img/canvas.jpg) repeat; font-size: 16px; line-height: 1.5; -webkit-text-size-adjust: 100%;}
 .main {padding: 0 10px; margin: 10px 0;}
 
 .header {text-align: center;}
@@ -10,7 +10,7 @@ body {background: url(/img/canvas.jpg) repeat; font-size: 16px; line-height: 1.5
 
 .intro {font-size: 17px;}
 
-img {max-width: 100%;}
+img {display: block; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic;}
 
 h2 {font-size: 22px; font-weight: bold;}
 
