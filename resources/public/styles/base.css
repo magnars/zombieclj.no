@@ -10,7 +10,7 @@ body {background: url(/img/canvas.jpg) repeat; font-size: 16px; line-height: 1.5
 
 .intro {font-size: 17px;}
 
-img {display: block; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic;}
+img {max-width: 100%; height: auto; -ms-interpolation-mode: bicubic;}
 
 h2 {font-size: 22px; font-weight: bold;}
 
