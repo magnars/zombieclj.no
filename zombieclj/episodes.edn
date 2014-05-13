@@ -8,5 +8,6 @@
              {:number "03" :youtube "ibXLfI4U7_0" :size "115mb" :name "Quiescent"}
              {:number "04" :youtube "shmoH3_PjX8" :size "154mb" :name "Få ferdig UIet"}
              {:number "05" :youtube "7ci8mnBugc0" :size "168mb" :name "Backend's back"}
-             {:number "06" :youtube "lurN6A7xmLo" :size "144mb" :name "Knasende god"}
-             {:number "07" :upcoming "fredag 16. mai" :name "Hjernesmelting"}]}]
+             {:number "06" :youtube "lurN6A7xmLo" :size "31mb" :name "Knasende god"}
+             {:number "07" :upcoming "onsdag 14. mai" :size "30mb" :name "Hjernesmelting"}
+             {:number "08" :upcoming "fredag 16. mai" :name "Face events"}]}]
