@@ -25,6 +25,7 @@
       [:link {:rel "stylesheet" :href "/styles/responsive.css"}])
      (serve-to-media-query-clueless-browsers
       [:link {:rel "stylesheet" :href "/styles/unresponsive.css"}])
+     [:link {:href "/atom.xml" :rel "alternate" :title "Zombie CLJ" :type "application/atom+xml"}]
      [:title (head-title page settings)]]
     [:body
      [:script (slurp (io/resource "public/scripts/ga.js"))]

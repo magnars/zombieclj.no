@@ -7,7 +7,8 @@
                  [optimus "0.14.2"]
                  [stasis "1.1.0"]
                  [ring "1.2.1"]
-                 [enlive "1.1.5"]]
+                 [enlive "1.1.5"]
+                 [org.clojure/data.xml "0.0.7"]]
   :jvm-opts ["-Djava.awt.headless=true"]
   :ring {:handler zombieclj-no.web/app
          :port 3334}

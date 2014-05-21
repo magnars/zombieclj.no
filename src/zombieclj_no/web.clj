@@ -11,7 +11,8 @@
             [stasis.core :as stasis]
             [zombieclj-no.content :refer [load-content]]
             [zombieclj-no.layout :refer [render-page]]
-            [zombieclj-no.pages :as pages]))
+            [zombieclj-no.pages :as pages]
+            [zombieclj-no.rss :as rss]))
 
 (defn get-assets []
   (assets/load-assets "public" ["/styles/responsive.css"
@@ -19,7 +20,8 @@
 
 (defn- optimize-path-fn [request]
   (fn [src]
-    (if (external-url? src)
+    (if (or (external-url? src)
+            (= "/atom.xml" src))
       src
       (or (not-empty (link/file-path request src))
           (throw (Exception. (str "Asset not loaded: " src)))))))
@@ -40,7 +42,8 @@
 (defn get-pages []
   (let [content (load-content)]
     (-> (pages/get-pages content)
-        (update-vals #(partial prepare-page % content)))))
+        (update-vals #(partial prepare-page % content))
+        (merge {"/atom.xml" (rss/atom-xml (:seasons content))}))))
 
 (def optimize optimizations/all)
 

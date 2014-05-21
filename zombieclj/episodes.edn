@@ -3,13 +3,13 @@
                 hakket mer utfordrende enn du er vant til. Du må ikke
                 flippe opp zombier eller tåke, og tida løper fra deg
                 fortere enn du løper fra zombiene."
-  :episodes [{:number "01" :youtube "sbxKFKJxxmw" :size "26mb" :name "Introduksjon"}
-             {:number "02" :youtube "RjM-ApBG61E" :size "141mb" :name "Opp med serveren"}
-             {:number "03" :youtube "ibXLfI4U7_0" :size "115mb" :name "Quiescent"}
-             {:number "04" :youtube "shmoH3_PjX8" :size "154mb" :name "Få ferdig UIet"}
-             {:number "05" :youtube "7ci8mnBugc0" :size "168mb" :name "Backend's back"}
-             {:number "06" :youtube "lurN6A7xmLo" :size "31mb" :name "Knasende god"}
-             {:number "07" :youtube "_4_vic0rzIQ" :size "30mb" :name "Hjernesmelting"}
-             {:number "08" :youtube "AwZjE-cPYC0" :size "43mb" :name "Face events"}
-             {:number "09" :youtube "21l9QF4-8Nw" :size "58mb" :name "Tikk tikk tikk"}
+  :episodes [{:number "01" :youtube "sbxKFKJxxmw" :date "2014-04-28" :size "26mb"  :name "Introduksjon"}
+             {:number "02" :youtube "RjM-ApBG61E" :date "2014-04-28" :size "141mb" :name "Opp med serveren"}
+             {:number "03" :youtube "ibXLfI4U7_0" :date "2014-04-28" :size "115mb" :name "Quiescent"}
+             {:number "04" :youtube "shmoH3_PjX8" :date "2014-05-02" :size "154mb" :name "Få ferdig UIet"}
+             {:number "05" :youtube "7ci8mnBugc0" :date "2014-05-02" :size "168mb" :name "Backend's back"}
+             {:number "06" :youtube "lurN6A7xmLo" :date "2014-05-09" :size "31mb"  :name "Knasende god"}
+             {:number "07" :youtube "_4_vic0rzIQ" :date "2014-05-14" :size "30mb"  :name "Hjernesmelting"}
+             {:number "08" :youtube "AwZjE-cPYC0" :date "2014-05-16" :size "43mb"  :name "Face events"}
+             {:number "09" :youtube "21l9QF4-8Nw" :date "2014-05-21" :size "58mb"  :name "Tikk tikk tikk"}
              {:number "10" :upcoming "fredag 23. mai" :name "Drep spilleren"}]}]

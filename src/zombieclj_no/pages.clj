@@ -2,15 +2,13 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
             [hiccup.core :refer [html]]
-            [stasis.core :as stasis]))
+            [stasis.core :as stasis]
+            [zombieclj-no.episodes :refer [episode-url embed-video]]))
 
 (def guests
   {:cjno "Christian Johansen"
    :jhannes "Johannes Brodwall"
    :cia-audience "120 publikummere på CiA"})
-
-(defn- episode-url [episode]
-  (str "/e" (:number episode) ".html"))
 
 (defn- render-episode [{:keys [number name guest upcoming]}]
   [:div.episode
@@ -53,10 +51,7 @@
          (list "Hvis du er ny her, så vil du kanskje "
                [:a {:href "/"} "starte på forsiden"]
                "."))]
-      [:div.embed-container
-       [:iframe {:src (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1")
-                 :frameborder 0
-                 :allowfullscreen true}]]
+      [:div.embed-container (embed-video episode)]
       [:ul.small.mbm.mts
        [:li "Du kan også laste den ned og se på bussen: "
         [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
