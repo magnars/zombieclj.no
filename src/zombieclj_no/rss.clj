@@ -36,7 +36,8 @@
 (defn atom-xml [seasons]
   (xml/emit-str
    (xml/sexp-as-element
-    [:feed {:xmlns "http://www.w3.org/2005/Atom"}
+    [:feed {:xmlns "http://www.w3.org/2005/Atom"
+            :xmlns:media "http://search.yahoo.com/mrss/"}
      [:id "urn:zombieclj-no:feed"]
      [:updated
       (.format (SimpleDateFormat. "yyyy-MM-dd'T'HH:mm:ssXXX")
