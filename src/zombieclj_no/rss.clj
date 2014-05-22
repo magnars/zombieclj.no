@@ -24,6 +24,12 @@
    [:author [:name "Christian Johansen"]]
    [:link {:href (episode-url episode)}]
    [:id (str "urn:zombieclj-no:feed:episode:" (to-id-str (:name episode)))]
+   [:media:content {:url (video-url episode)
+                    :type "application/x-shockwave-flash"
+                    :isDefault "true"
+                    :expression "full"
+                    :medium "video"
+                    :lang "no"}]
    [:content {:type "html"} (html [:a {:href (video-url episode)}
                                    "Se videoen"])]])
 
