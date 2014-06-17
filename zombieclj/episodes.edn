@@ -18,4 +18,8 @@
              {:number "13" :youtube "AQxNbL96MKU" :date "2014-06-04" :size "27mb"  :name "unface-concealed"}
              {:number "14" :youtube "uaq_TjblhlM" :date "2014-06-06" :size "42mb"  :name "Eye sockets"}
              {:number "15" :youtube "RSV6xeTRzCQ" :date "2014-06-11" :size "29mb"  :name "Tiden rænder ud"}
-             {:number "16" :youtube "VkO8Djgmbqk" :date "2014-06-13" :size "27mb"  :name "Jeg klikker!"}]}]
+             {:number "16" :youtube "VkO8Djgmbqk" :date "2014-06-13" :size "27mb"  :name "Jeg klikker!"}
+             {:number "17" :youtube "MGpz1AYZc-o" :date "2014-06-18" :size "43mb"  :name "Knusing av insekter"}
+             {:number "18" :upcoming "fredag 20. juni" :name "På en snurr"}
+             {:number "19" :upcoming "onsdag 25. juni" :name "Kommunikasjonstrøbbel"}
+             {:number "20" :upcoming "fredag 27. juni" :name "Føkkings ferdig"}]}]
