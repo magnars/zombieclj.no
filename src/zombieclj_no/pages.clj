@@ -10,11 +10,11 @@
    :jhannes "Johannes Brodwall"
    :cia-audience "120 publikummere på CiA"})
 
-(defn- render-episode [{:keys [number name guest upcoming]}]
+(defn- render-episode [{:keys [number name guest upcoming] :as episode}]
   [:div.episode
    [:a (if upcoming
          {:class "faded"}
-         {:href (str "/e" number ".html")})
+         {:href (episode-url episode)})
     (when guest
       [:span.note "Starring " (guests guest)])
     (when upcoming
@@ -42,7 +42,9 @@
 
 (defn- episode-page [episode next-episode content]
   (let [settings (:settings content)
-        filename (str (:id settings) "_" (:number episode) "." (-> content :settings :ext))]
+        filename (str (:id settings) "_"
+                      (-> episode :prefixes :download)
+                      (:number episode) "." (-> content :settings :ext))]
     {:body
      (list
       [:p.intro (-> settings :episode-intro) " "

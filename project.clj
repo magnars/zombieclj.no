@@ -5,9 +5,10 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [optimus "0.14.2"]
-                 [stasis "1.1.0"]
+                 [stasis "2.2.1"]
                  [ring "1.2.1"]
                  [enlive "1.1.5"]
+                 [prone "0.4.0"]
                  [org.clojure/data.xml "0.0.7"]]
   :jvm-opts ["-Djava.awt.headless=true"]
   :ring {:handler zombieclj-no.web/app

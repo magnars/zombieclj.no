@@ -1,7 +1,7 @@
 (ns zombieclj-no.episodes)
 
 (defn episode-url [episode]
-  (str "/e" (:number episode) ".html"))
+  (str "/" (-> episode :prefixes :url) (:number episode) ".html"))
 
 (defn video-url [episode]
   (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1"))

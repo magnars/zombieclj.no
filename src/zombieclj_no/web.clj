@@ -7,9 +7,11 @@
             [optimus.optimizations :as optimizations]
             [optimus.prime :as optimus]
             [optimus.strategies :refer [serve-live-assets]]
+            [prone.middleware :refer [wrap-exceptions]]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [stasis.core :as stasis]
             [zombieclj-no.content :refer [load-content]]
+            [zombieclj-no.cultivate :refer [cultivate-content]]
             [zombieclj-no.layout :refer [render-page]]
             [zombieclj-no.pages :as pages]
             [zombieclj-no.rss :as rss]))
@@ -41,13 +43,16 @@
 
 (defn get-pages []
   (let [content (load-content)]
-    (-> (pages/get-pages content)
+    (-> content
+        cultivate-content
+        pages/get-pages
         (update-vals #(partial prepare-page % content))
         (merge {"/atom.xml" (rss/atom-xml (:seasons content))}))))
 
 (def optimize optimizations/all)
 
 (def app (-> (stasis/serve-pages get-pages)
+             wrap-exceptions
              (optimus/wrap get-assets optimize serve-live-assets)
              wrap-content-type))
 
