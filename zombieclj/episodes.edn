@@ -1,5 +1,5 @@
 [{:name "Sesong 1"
-  :prefixes {:url "e" :download ""}
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Vi lager første spill i serien, en memo-variant som er
                 hakket mer utfordrende enn du er vant til. Du må ikke
                 flippe opp zombier eller tåke, og tida løper fra deg
@@ -25,7 +25,7 @@
              {:number "19" :youtube "xkf-X8qwhtk" :date "2014-06-25" :size "32mb"  :name "Chanandeler Bong"}
              {:number "20" :youtube "IYRZj6KXS1s" :date "2014-06-25" :size "30mb"  :name "Føkkings ferdig"}]}
  {:name "Intermezzo 1"
-  :prefixes {:url "s01i" :download "s01i"}
+  :prefixes {:url "s01i" :download "s01i" :disqus "s01i"}
   :description "Et par episoder mens vi venter på neste sesong. Smårydding og
                 småpludring."
   :episodes [{:number "01" :youtube "s5IHOMd_I24" :date "2014-09-03" :size "32mb" :name "Refaktorering 1"}]}]

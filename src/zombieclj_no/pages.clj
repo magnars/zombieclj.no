@@ -37,7 +37,7 @@
 (defn- insert-disqus-thread [html episode]
   (-> html
       (str/replace #":episode-identifier" (or (:disqus-identifier episode)
-                                              (str "episode" (:number episode))))
+                                              (str "episode" (-> episode :prefixes :disqus) (:number episode))))
       (str/replace #":episode-link" (episode-url episode))))
 
 (defn- episode-page [episode next-episode content]
