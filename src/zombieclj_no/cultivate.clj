@@ -1,5 +1,4 @@
-(ns zombieclj-no.cultivate
-  (:require [zombieclj-no.homeless :refer [update-in*]]))
+(ns zombieclj-no.cultivate)
 
 (defn- add-seasons-info-to-each-episode [season]
   (update-in season [:episodes]
