@@ -30,5 +30,5 @@
                 småpludring."
   :episodes [{:number "01" :youtube "s5IHOMd_I24" :date "2014-09-03" :size "32mb" :name "Refaktorering 1"}
              {:number "02" :youtube "X7VHxD8ZlCc" :date "2014-09-22" :size "35mb" :name "Refaktorering 2"}
-             {:number "03" :youtube "5KxyDvOxbsE" :date "2014-09-22" :size "50mb" :name "Refaktorering 2"}
+             {:number "03" :youtube "5KxyDvOxbsE" :date "2014-09-22" :size "50mb" :name "Refaktorering 3"}
              {:number "04" :youtube "t3Dr_Z3o8IE" :date "2014-09-22" :size "17mb" :name "Klar for JavaZone"}]}]
