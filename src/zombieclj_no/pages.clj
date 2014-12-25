@@ -55,10 +55,12 @@
                "."))]
       [:div.embed-container (embed-video episode)]
       [:ul.small.mbm.mts
-       [:li "Du kan også laste den ned og se på bussen: "
-        [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
-         filename]
-        " (" (:size episode) ")"]
+       (if (:vimeo episode)
+         [:li "Du kan " [:a {:href (str "https://vimeo.com/" (:vimeo episode))} "laste ned episoden på Vimeo"] "."]
+         [:li "Du kan også laste den ned og se på bussen: "
+          [:a {:href (str "http://dl.dropbox.com/u/3615058/" (:id settings) "/" filename "?dl=1")}
+           filename]
+          " (" (:size episode) ")"])
        (when-not next-episode
          [:li "Hvis du har gått glipp av noe, kan du sjekke ut "
           [:a {:href "/"} "alle episodene"]
