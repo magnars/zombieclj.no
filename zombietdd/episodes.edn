@@ -1,8 +1,10 @@
 [{:name "Akt I"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Introduksjon til serien. Litt om spillet og tankene bak."
   :episodes [{:number "01" :youtube "317CL6bO6fM" :size "111mb" :name "Introduksjon" :disqus-identifier "episode1"}]}
 
  {:name "Akt II"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Grunnleggende testdrevet utvikling og refaktorering, samt oppsett av miljø med JsTestDriver."
   :episodes [{:number "02" :youtube "o5yG9Rs427A" :size "157mb" :name "Skjelettkode"}
              {:number "03" :youtube "tPRIMQ8XTk8" :size "120mb" :name "JSLint"}
@@ -13,6 +15,7 @@
              {:number "08" :youtube "lmM0Ke-BOGY" :size "262mb" :name "Until You Drop"}]}
 
  {:name "Akt III"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Parprogrammering med Johannes Brodwall. Vi får opp en nettside, og starter bygging av rom."
   :episodes [{:number "09" :youtube "dDuPUCzVfWg" :size "203mb" :name "Backend's Back"              :guest :jhannes}
              {:number "10" :youtube "7JySbj8ccEI" :size "215mb" :name "Roten til litt vondt"        :guest :jhannes}
@@ -21,6 +24,7 @@
              {:number "13" :youtube "7OqZnzY0agM" :size "232mb" :name "Någonting Är Jävligt Fel"}]}
 
  {:name "Akt IV"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Refaktorering og rydding. Legger om til Buster.JS for tester, bruker Faye som event hub, og får på integrasjonstester."
   :episodes [{:number "14" :youtube "O80Bf--htnU" :size "263mb" :name "Buster'd"                    :guest :cjno}
              {:number "15" :youtube "tPe5ebTwsgs" :size "164mb" :name "Det er bare klapping"}
@@ -29,6 +33,7 @@
              {:number "18" :youtube "gntBVEidlVo" :size "269mb" :name "Integrasjonstester"          :guest :cjno}]}
 
  {:name "Akt V"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Parprogrammering med Johannes Brodwall. Zombiene bryter ned barrikaden og tar seg inn i bygningen."
   :episodes [{:number "19" :youtube "2DxRUJY82Ls" :size "205mb" :name "Undefined zombies"           :guest :jhannes}
              {:number "20" :youtube "EdpLNRKKRdM" :size "214mb" :name "Brutte løfter"               :guest :jhannes}
@@ -38,6 +43,7 @@
              {:number "24" :youtube "bM5sCmxdDG8" :size "320mb" :name "Zombieslakt"                 :guest :jhannes}]}
 
  {:name "Akt VI"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "Sørger for at serveren og klienten er i synk, samt refaktorering."
   :episodes [{:number "25" :youtube "kmhgi-Ig3UI" :size "172mb" :name "eventHub, del 1"}
              {:number "26" :youtube "K-6yOKu0F_0" :size "160mb" :name "eventHub, del 2"}
@@ -46,6 +52,7 @@
              {:number "29" :youtube "WvLtHLe17_k" :size "159mb" :name "N-sync"}]}
 
  {:name "Akt VII"
+  :prefixes {:url "e" :download "" :disqus ""}
   :description "En ny innfallsvinkel til spillet, sparket i gang med live parprogrammering featuring Christian Johansen på JavaZone."
   :episodes [{:number "30" :vimeo "49485653" :name "En trivelig aften på JavaZone"                  :guest :cjno}
              {:number "31" :youtube "3rsHL90fOxE" :size "169mb" :name "Sperra inne"}]}]
