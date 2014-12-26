@@ -1,0 +1,9 @@
+@import 'reset.css';
+@import 'base.css';
+@import "420up.css";
+@import "600up.css";
+@import "760up.css";
+@import "940up.css";
+@import "1000up.css";
+
+body {width: 1000px;}
