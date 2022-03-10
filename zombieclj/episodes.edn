@@ -1,6 +1,7 @@
 [{:name "Sesong 1"
-  :prefixes {:url "e" :download "" :disqus ""}
-  :description "Vi lager første spill i serien, en memo-variant som er
+  :old? true
+  :prefixes {:url "e" :disqus ""}
+  :description "Den første sesongen fra 2014. Her lagde vi en memo-variant som er
                 hakket mer utfordrende enn du er vant til. Du må ikke
                 flippe opp zombier eller tåke, og tida løper fra deg
                 fortere enn du løper fra zombiene."
@@ -25,10 +26,16 @@
              {:number "19" :youtube "xkf-X8qwhtk" :date "2014-06-25" :size "32mb"  :name "Chanandeler Bong"}
              {:number "20" :youtube "IYRZj6KXS1s" :date "2014-06-25" :size "30mb"  :name "Føkkings ferdig"}]}
  {:name "Intermezzo 1"
-  :prefixes {:url "s01i" :download "s01i" :disqus "s01i"}
-  :description "Et par episoder mens vi venter på neste sesong. Smårydding og
-                småpludring."
+  :old? true
+  :prefixes {:url "s01i" :disqus "s01i"}
+  :description "Smårydding og småpludring i forberedelse til en sesong 2 det aldri ble noe av."
   :episodes [{:number "01" :youtube "s5IHOMd_I24" :date "2014-09-03" :size "32mb" :name "Refaktorering 1"}
              {:number "02" :youtube "X7VHxD8ZlCc" :date "2014-09-22" :size "35mb" :name "Refaktorering 2"}
              {:number "03" :youtube "5KxyDvOxbsE" :date "2014-09-22" :size "50mb" :name "Refaktorering 3"}
-             {:number "04" :youtube "t3Dr_Z3o8IE" :date "2014-09-22" :size "17mb" :name "Klar for JavaZone"}]}]
+             {:number "04" :youtube "t3Dr_Z3o8IE" :date "2014-09-22" :size "17mb" :name "Klar for JavaZone"}]}
+ {:name "Sesong 2"
+  :prefixes {:url "s02e" :disqus "s02e"}
+  :description "I spill nummer to er det på tide å ta opp kampen mot zombiene. Kast terninger og slå ned noen vandøde."
+  :episodes [{:number "00" :youtube "tmO-i-HsRFs" :date "2022-03-11" :name "Spede begynnelser" :note "* valgfri wiring-episode"}
+             {:number "01" :youtube "0f-9JbYAOPE" :date "2022-03-11" :name "To litt rustne tomsinger" :note "* moroa begynner"}
+             {:number "02" :youtube "xGxyzjY1wmY" :date "2022-03-11" :name "Et lite tips"}]}]
