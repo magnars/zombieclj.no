@@ -6,7 +6,7 @@
 (defn video-url [episode]
   (cond
     (:youtube episode)
-    (str "http://www.youtube.com/embed/" (:youtube episode) "?hd=1")
+    (str "https://www.youtube.com/embed/" (:youtube episode) "?hd=1")
 
     (:vimeo episode)
     (str "//player.vimeo.com/video/" (:vimeo episode) "?title=0&amp;byline=0&amp;portrait=0")))
