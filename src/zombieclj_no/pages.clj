@@ -30,9 +30,7 @@
 (defn index [content]
   {:body (-> (slurp (io/resource "index.html"))
              (str/replace "<episodes/>"
-                          (html (map render-season (:seasons content))))
-             (str/replace "<mail-signup/>"
-                          (:mail-signup content)))})
+                          (html (map render-season (:seasons content)))))})
 
 (defn- insert-disqus-thread [html episode]
   (-> html
@@ -72,7 +70,6 @@
          [:span.nowrap "Her er "
           [:a {:href (episode-url next-episode)}
            "Episode " (:number next-episode) ": " (:name next-episode)]]])
-      (:mail-signup content)
       (insert-disqus-thread (:disqus-html content) episode))}))
 
 (defn create-episode-pages [content]
