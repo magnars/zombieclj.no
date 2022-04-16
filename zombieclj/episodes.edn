@@ -34,6 +34,7 @@
              {:number "03" :youtube "5KxyDvOxbsE" :date "2014-09-22" :size "50mb" :name "Refaktorering 3"}
              {:number "04" :youtube "t3Dr_Z3o8IE" :date "2014-09-22" :size "17mb" :name "Klar for JavaZone"}]}
  {:name "Sesong 2"
+  :ditch-disqus? true
   :prefixes {:url "s02e" :disqus "s02e"}
   :description "I spill nummer to er det på tide å ta opp kampen mot zombiene. Kast terninger og slå ned noen vandøde."
   :episodes [{:number "00" :youtube "tmO-i-HsRFs" :date "2022-03-11" :name "Spede begynnelser" :note "* valgfri wiring-episode"}

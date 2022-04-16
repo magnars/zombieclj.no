@@ -75,7 +75,8 @@
          [:span.nowrap "Her er "
           [:a {:href (episode-url next-episode)}
            "Episode " (:number next-episode) ": " (:name next-episode)]]])
-      (insert-disqus-thread (:disqus-html content) episode))}))
+      (when-not (:ditch-disqus? episode)
+        (insert-disqus-thread (:disqus-html content) episode)))}))
 
 (defn create-episode-pages [content]
   (-> content :seasons

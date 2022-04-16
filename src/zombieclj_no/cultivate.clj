@@ -2,7 +2,9 @@
 
 (defn- add-seasons-info-to-each-episode [season]
   (update-in season [:episodes]
-             #(mapv (fn [e] (assoc e :prefixes (:prefixes season))) %)))
+             #(mapv (fn [e] (-> e
+                                (assoc :prefixes (:prefixes season))
+                                (assoc :ditch-disqus? (:ditch-disqus? season)))) %)))
 
 (defn cultivate-content [content]
   (update-in content [:seasons]
