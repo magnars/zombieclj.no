@@ -17,7 +17,7 @@ Du må også ha JDK 1.7. Sjekk med `java -version`, ellers
 Gå så til rota av prosjektet, og
 
 ```shell
-lein ring server-headless
+lein with-profile zclj ring server-headless
 ```
 
 Voila!
